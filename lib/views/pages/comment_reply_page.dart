@@ -71,7 +71,7 @@ class _ReplyCommentViewState extends State<ReplyCommentView> {
           Expanded(
             child: Column(
               children: [
-                ReplyCommentView(comment: widget.comment),
+                
                 SizedBox(
                   height: 70.0,
                   child: Row(

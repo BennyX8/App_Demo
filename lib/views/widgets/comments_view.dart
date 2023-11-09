@@ -44,6 +44,53 @@ class _CommentsViewState extends State<CommentsView> {
                 },
               ),
             ),
+            Divider(
+              color: Colors.grey.shade300,
+            ),
+            SizedBox(
+              height: 70.0,
+              child: Row(
+                children: [
+                  wSpace(w: 16),
+                  const CircleAvatar(
+                    foregroundImage: AssetImage(
+                      'assets/images/Terry.png',
+                    ),
+                  ),
+                  Expanded(
+                    child: Container(
+                      margin: const EdgeInsets.all(8),
+                      clipBehavior: Clip.antiAlias,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(30),
+                        border: Border.all(color: Colors.grey.shade400),
+                      ),
+                      child: TextField(
+                        readOnly: true,
+                        decoration: InputDecoration(
+                          prefixIcon: const Icon(Icons.emoji_emotions),
+                          suffixIcon: const Icon(
+                            Icons.send_rounded,
+                            color: Color(0xFF5C8DFF),
+                          ),
+                          hintText: 'Add comment',
+                          hintStyle: TextStyle(color: Colors.grey.shade300),
+                          border: OutlineInputBorder(
+                            borderSide: BorderSide.none,
+                            borderRadius: BorderRadius.circular(50),
+                          ),
+                          focusedBorder: OutlineInputBorder(
+                            borderSide: BorderSide.none,
+                            borderRadius: BorderRadius.circular(50),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                  wSpace(w: 16.0),
+                ],
+              ),
+            ),
           ],
         ),
       ),

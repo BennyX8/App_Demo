@@ -3,16 +3,16 @@ import 'package:app_demo/core/route_builder.dart';
 import 'package:app_demo/models/comment.dart';
 import 'package:flutter/material.dart';
 
-import '../pages/comment_reply_page.dart';
-
-class CommentView extends StatelessWidget {
+class ReplyCommentView extends StatelessWidget {
   final Comment comment;
 
-  const CommentView({super.key, required this.comment});
+  const ReplyCommentView({super.key, required this.comment});
 
   @override
   Widget build(BuildContext context) {
-    return IntrinsicHeight(
+    return SizedBox(
+      height: 180,
+      width: MediaQuery.of(context).size.width,
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -42,7 +42,6 @@ class CommentView extends StatelessWidget {
                       ),
                     ),
                     wSpace(w: 10.0),
-                    const Spacer(),
                     Text(comment.time),
                   ],
                 ),
@@ -63,7 +62,7 @@ class CommentView extends StatelessWidget {
                             await Navigator.push(
                               context,
                               KRoute(
-                                child:  ReplyCommentView(comment: comment),
+                                child: ReplyCommentView(comment: comment),
                               ),
                             );
                           },
@@ -101,33 +100,28 @@ class CommentView extends StatelessWidget {
                     ),
                   ],
                 ),
-                if (comment.replies != null)
-                  Row(
-                    children: [
-                      Container(
-                        margin: const EdgeInsets.only(top: 12),
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 8.0, vertical: 0),
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(24.0),
-                          border: Border.all(
-                              color: Colors.grey.shade300, width: 0.8),
+                const Row(
+                  children: [
+                    Row(
+                      children: [
+                        Text(
+                          'Replying to ',
+                          style: TextStyle(color: Colors.grey),
                         ),
-                        child: const Row(
-                          children: [
-                            Text(
-                              'View 15 replies',
-                              style: TextStyle(color: Colors.grey),
-                            ),
-                            Icon(
-                              Icons.chevron_right,
-                              color: Color(0xFFBD6565),
-                            ),
-                          ],
+                        Text(
+                          'John Doe @JohntheD',
+                          style: TextStyle(
+                            color: Color(0xFFFFBB00),
+                          ),
                         ),
-                      ),
-                    ],
-                  ),
+                        Icon(
+                          Icons.chevron_right,
+                          color: Color(0xFFFFBB00),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
                 hSpace(h: 12.0)
               ],
             ),

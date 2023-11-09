@@ -293,10 +293,12 @@ class _FeedsViewState extends State<FeedsView> {
     await showModalBottomSheet(
       context: context,
       clipBehavior: Clip.antiAlias,
-      constraints: BoxConstraints(
-        maxHeight: 800.0,
+      isScrollControlled: true,
+      useSafeArea: true,
+      constraints: BoxConstraints.loose(
+        Size(MediaQuery.of(context).size.width, 600),
       ),
-      shape: RoundedRectangleBorder(
+      shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.only(
           topLeft: Radius.circular(16.0),
           topRight: Radius.circular(16.0),

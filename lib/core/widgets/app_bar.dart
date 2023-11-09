@@ -1,3 +1,4 @@
+import 'package:app_demo/core/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -33,20 +34,27 @@ class KAppBar extends AppBar {
     this.popColor = Colors.grey,
   }) : super(
           title: titleText != null
-              ? Text(
-                  titleText,
-                  style: style ??
-                      const TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.w500,
-                      ),
+              ? Row(
+                  children: [
+                    Text(
+                      titleText,
+                      style: style ??
+                          const TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.w400,
+                            color: Colors.grey,
+                          ),
+                    ),
+                    wSpace(w: 12),
+                    const Icon(Icons.chevron_right)
+                  ],
                 )
               : null,
           actions: actionButtons,
           centerTitle: false,
           elevation: 0.0,
           toolbarHeight: height,
-          backgroundColor: bgColor??Colors.transparent,
+          backgroundColor: bgColor ?? Colors.transparent,
           systemOverlayStyle: uiOverlayStyle,
           bottom: bottomView,
           titleSpacing: spacing,

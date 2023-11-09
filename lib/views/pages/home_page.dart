@@ -1,3 +1,4 @@
+import 'package:app_demo/core/constants.dart';
 import 'package:app_demo/core/widgets/app_bar.dart';
 import 'package:app_demo/views/widgets/tab_button.dart';
 import 'package:flutter/material.dart';
@@ -51,11 +52,13 @@ class _TimelineState extends State<Timeline>
                     ),
                   ),
                 ),
-                // const MenuIcon(),
               ],
             ),
             onTap: () {},
           ),
+          actionButtons: [
+            wSpace(w: 12.0),
+          ],
         ),
         body: TabBarView(
           controller: tabController,

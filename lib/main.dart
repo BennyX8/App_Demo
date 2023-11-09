@@ -1,9 +1,6 @@
-import 'package:app_demo/views/pages/store_front_page.dart';
+import 'package:app_demo/views/pages/home_page.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:permission_handler/permission_handler.dart';
-
-import 'controller/product_controller.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -17,13 +14,13 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
-      // initialBinding: InitalBinding(),
-      color: Colors.orange,
-      home: StoreFrontPage(),
-      theme: ThemeData(
-        primarySwatch: Colors.orange,
+      color: Colors.black,
+      home: const Timeline(),
+      themeMode: ThemeMode.dark,
+      theme: ThemeData.dark(useMaterial3: true).copyWith(
+        primaryColor: Colors.black,
         filledButtonTheme: FilledButtonThemeData(
           style: ElevatedButton.styleFrom(
             elevation: 0,
@@ -63,11 +60,4 @@ Future<void> requestPermissions() async {
     Permission.mediaLibrary,
     Permission.camera,
   ].request();
-}
-
-class InitalBinding implements Bindings {
-  @override
-  void dependencies() {
-    Get.put<ProductController>(ProductController(), permanent: true);
-  }
 }

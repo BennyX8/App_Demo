@@ -14,6 +14,7 @@ class KAppBar extends AppBar {
   final double? spacing;
   final bool elevatePop;
   final Color popColor;
+  final Color? bgColor;
 
   KAppBar({
     super.key,
@@ -27,6 +28,7 @@ class KAppBar extends AppBar {
     this.leadingViewWidth,
     this.spacing,
     this.style,
+    this.bgColor,
     this.elevatePop = false,
     this.popColor = Colors.grey,
   }) : super(
@@ -44,7 +46,7 @@ class KAppBar extends AppBar {
           centerTitle: false,
           elevation: 0.0,
           toolbarHeight: height,
-          backgroundColor: Colors.transparent,
+          backgroundColor: bgColor??Colors.transparent,
           systemOverlayStyle: uiOverlayStyle,
           bottom: bottomView,
           titleSpacing: spacing,
